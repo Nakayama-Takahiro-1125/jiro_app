@@ -1,0 +1,63 @@
+/* header */
+#logo{
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: red;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  font-family: cursive;
+  &:hover{
+    color: red;
+    text-decoration: none;
+  }
+}
+
+
+
+/* Static Page */
+h1, h2 {
+  font-weight: 100;
+  font-family: cursive;
+}
+
+.text-red {
+  color: #F00;
+}
+
+.btn-white {
+  color: #fff;
+  border: 1px solid #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  background-color: rgba(0,0,0,0.0);
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.top-hero-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('ramenjiro.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
+.top-hero-container {
+  padding-top: 220px;
+  h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    margin-bottom: 60px;
+  }
+}
