@@ -1,5 +1,7 @@
 {
   "name": "jiro_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jpn.css": "^1.0.1"
+  }
 }
