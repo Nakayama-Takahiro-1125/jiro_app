@@ -1,6 +1,49 @@
-<!-- /app/views/user/usershow.html.erb -->
-<div class="top-hero-container">
-  <div class="row">
-    <h1>MyPage <%= @user.name %></h1>
+
+<div class="user-show-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 text-center">
+        <section class="user_info">
+          <h1>
+            <%= @user.name %>
+          </h1>
+          <%= form_for @post do |f| %>
+            <div class="field-image">
+              <%= f.label :image, class: "white" %>
+              <%= f.file_field :image%>
+            </div>
+            <div class="form-group">
+              <%= f.label :content, class: "white" %>
+              <%= f.text_area :content, class: 'form-control' %>
+            </div>
+            <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+          <% end %>
+        </section>
+      </div>
+      <div class="col-md-6">
+        <div class="post-index-wrapper">
+          <div class="container">
+            <div class="col-md-6">
+              <% @posts.each do |post| %>
+                  <div class="post-index-single">
+                    <h2 class="post-author">
+                      <%= post.user.name %>
+                    </h2>
+                      <%= image_tag post.image.url if post.image? %>
+                    <p class="post-text">
+                      <%= post.content %>
+                    </p>
+                    <% if post.user_id == current_user.id && user_signed_in? %>
+                      <%= link_to '編集', edit_post_path, class: 'btn btn-default' %>
+                      <%= link_to '削除', post_path, method: :delete, class: 'btn btn-default' %>
+                    <% end %>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+

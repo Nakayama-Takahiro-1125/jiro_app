@@ -10,12 +10,13 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-      <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-      <% end %>
-        <div class=" container text-center ">
+       
+          <%= render 'layouts/header' %>
+        
+            <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "#{key}") %>
+            <% end %>
+        
             <%= yield %>
-        </div>
   </body>
 </html>
