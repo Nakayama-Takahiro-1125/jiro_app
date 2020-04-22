@@ -1,9 +1,9 @@
 <% if current_user.likes.find_by(post_id: @post.id) %>
-    <%= link_to post_like_path(post_id: @post.id), method: :delete, remote: true do %>
+    <%= link_to unlike_path(post_id: @post.id), method: :delete, remote: true do %>
     <div class= "buttons_">❤<%= @like_count %></div>
     <% end %>
 <% else %>
-    <%= link_to post_likes_path(post_id: @post.id), method: :post, remote: true do %>
+    <%= link_to like_path(post_id: @post.id), method: :post, remote: true do %>
    <div class= "buttons_">♡️<%= @like_count %></div>
    <% end %>
 <% end %>

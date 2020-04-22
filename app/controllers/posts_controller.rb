@@ -17,6 +17,7 @@ class PostsController < ApplicationController
     @user = User.find(current_user.id)
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)
+    @like_count = Like.where(post_id: params[:id]).count
   end
   
   
