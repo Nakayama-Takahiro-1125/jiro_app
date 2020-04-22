@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @post = Post.new
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.where(user_id: @user.id).all
   end
   
   def create

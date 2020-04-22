@@ -13,9 +13,17 @@ class PostsController < ApplicationController
     redirect_to user_path(current_user.id)
   end
   
+  def index
+    @user = User.find(current_user.id)
+    @post = Post.new
+    @posts = Post.all.order(created_at: :desc)
+  end
+  
+  
   
   def show
-    @post = Post.find(id: params[:id])
+    @post = Post.find_by(id: params[:id])
+    @like_count = Like.where(post_id: @post.id).count
   end
   
   def edit
@@ -32,7 +40,7 @@ class PostsController < ApplicationController
   
   def destroy
     @post = Post.find_by(id: params[:id])
-    @post.destroy(post_params)
+    @post.destroy
     redirect_to user_path(current_user.id)
   end
   
@@ -44,11 +52,9 @@ class PostsController < ApplicationController
     end
   end
   
-  
   private
   def post_params
     params.require(:post).permit(:image, :content)
   end
-
 
 end
