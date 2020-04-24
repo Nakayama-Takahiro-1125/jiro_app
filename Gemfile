@@ -20,6 +20,7 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'sqlite3',      '1.3.13'

@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @post = Post.new
     @posts = Post.where(user_id: @user.id).all
+    @post = Post.find_by(id: params[:id])
+    @like_count = Like.where(post_id: params[:post_id]).count
   end
   
   def create

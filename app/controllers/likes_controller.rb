@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :set_variables
+  before_action :set_controller
   
   def create
     @like = current_user.likes.new(post_id: params[:post_id])
@@ -13,8 +13,9 @@ class LikesController < ApplicationController
     @like_count = Like.where(post_id: params[:post_id]).count
   end
   
-  def set_variables
+  def set_controller
     @post = Post.find(params[:post_id])
   end
+  
   
 end

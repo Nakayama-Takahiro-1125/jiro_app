@@ -2,30 +2,23 @@
 <div class="user-show-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-3 text-center">
-        <section class="user_info">
-          <h1>
-            <%= @user.name %>
-          </h1>
-          <%= form_for @post do |f| %>
-            <div class="field-image">
-              <%= f.label :image, class: "white" %>
-              <%= f.file_field :image%>
-            </div>
-            <div class="form-group">
-              <%= f.label :content, class: "white" %>
-              <%= f.text_area :content, class: 'form-control' %>
-            </div>
-            <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
-          <% end %>
-        </section>
-      </div>
-      <div class="col-md-6">
+      <div class="col-md-6 col-md-offset-3">
         <div class="post-index-wrapper">
           <div class="container">
             <div class="col-md-6">
+              <section class="user_info">
+                <img src=<%= @user.image %> class = "icon_image">
+                <h1><%= @user.name %></h1>
+                <% if current_user.id == @user.id %>
+                  <%= link_to edit_user_registration_path do %>
+                    <i class="fa fa-cog fa-2x"　aria-hidden="true"></i>
+                  <% end %>
+                <% end %>
+                <h3><%= @user.profile %></h3>
+              </section>
               <% @posts.each do |post| %>
                   <div class="post-index-single">
+                    <img src=<%= @user.image %> class = "icon_image">
                     <h2 class="post-author">
                       <%= post.user.name %>
                     </h2>
@@ -37,6 +30,17 @@
                       <%= link_to '編集', edit_post_path, class: 'btn btn-default' %>
                       <%= link_to '削除', post_path, method: :delete, class: 'btn btn-default' %>
                     <% end %>
+                    <div class= "buttons_<%= post.id %>">
+                      <% if current_user.likes.find_by(post_id: post.id) %>
+                        <%= link_to unlike_path(post.id), method: :delete, remote: true do %>
+                          <div class= "buttons_">❤<%= @like_count %></div>
+                        <% end %>
+                      <% else %>
+                        <%= link_to like_path(post.id), method: :post, remote: true do %>
+                          <div class= "buttons_">♡️<%= @like_count %></div>
+                        <% end %>
+                    <% end %>
+                    </div>
                   </div>
               <% end %>
             </div>
