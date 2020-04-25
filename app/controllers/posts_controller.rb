@@ -7,10 +7,17 @@ class PostsController < ApplicationController
   
   def create
     @post = current_user.posts.new(post_params)
+    @user = User.find(current_user.id)
+    @user.exp_sum +=  @post.exp.to_i
+    @user.level = @user.exp_sum.to_i / 50
+    current_user.update(exp_sum: @user.exp_sum, level: @user.level)
+    if @post.save
+      flash[:notice] = "投稿に成功しました"
+      redirect_to posts_path
+    else
+      render "posts/index"
+    end
     
-    @post.save
-    flash[:notice] = "投稿に成功しました"
-    redirect_to user_path(current_user.id)
   end
   
   def index
@@ -55,7 +62,7 @@ class PostsController < ApplicationController
   
   private
   def post_params
-    params.require(:post).permit(:image, :content)
+    params.require(:post).permit(:image, :content, :exp)
   end
 
 end

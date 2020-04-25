@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :likes, dependent: :destroy
   
+  
   mount_uploader :image, ImageUploader
   validates :profile, length: { maximum: 200 }
 end
