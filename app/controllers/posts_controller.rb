@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     @user = User.find(current_user.id)
-    @user.exp_sum +=  @post.exp.to_i
+    @sum = @user.exp_sum
+    @user.exp_sum = @sum.to_i +  @post.exp.to_i
     @user.level = @user.exp_sum.to_i / 50
     current_user.update(exp_sum: @user.exp_sum, level: @user.level)
     if @post.save
@@ -21,6 +22,7 @@ class PostsController < ApplicationController
   end
   
   def index
+    
     @user = User.find(current_user.id)
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)

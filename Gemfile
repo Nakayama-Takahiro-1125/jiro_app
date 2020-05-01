@@ -13,7 +13,6 @@ gem 'coffee-rails', '4.2.2'
 gem 'jquery-rails', '4.3.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.6.4'
-gem 'rspec-rails'
 gem 'bootstrap-sass', '3.3.7'
 gem 'devise'
 gem 'devise-i18n'
@@ -25,6 +24,8 @@ gem 'font-awesome-rails'
 group :development, :test do
   gem 'sqlite3',      '1.3.13'
   gem 'byebug', '9.0.6', platform: :mri
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do

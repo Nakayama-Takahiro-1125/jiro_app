@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  validates :name, presence: true
+  validates :email, length: { maximum: 50}
+  validates :profile, length: { maximum: 200 }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
@@ -9,5 +12,4 @@ class User < ApplicationRecord
   
   
   mount_uploader :image, ImageUploader
-  validates :profile, length: { maximum: 200 }
 end
