@@ -1,0 +1,15 @@
+<div class="grouppost-wrapper">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for([@group, @grouppost], url:group_groupposts_path(@group)) do |f| %>
+          <div class="form-group">
+            <%= f.label :content %>
+            <%= f.text_area :content, class: 'form-control' %>
+          </div>
+          <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

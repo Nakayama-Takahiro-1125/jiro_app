@@ -226,3 +226,46 @@ h1, h2 {
     font-weight: bold;
 }
 
+/* groups */
+
+.group-index-wrapper{
+  
+  .group-new-wrapper{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+  }
+  
+  .group-index-single{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+  }
+}
+
+.group-show-wrapper{
+  .grouppost_btn{
+    padding-top: 10px ;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+  }
+  
+  .grouppost_index{
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+  }
+  
+  .grouppost_user_name{
+    float: left;
+  }
+}
+
+/* grouppost */
+.grouppost-wrapper{
+  margin-top: 50px;
+}

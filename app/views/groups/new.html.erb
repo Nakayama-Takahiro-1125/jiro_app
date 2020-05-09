@@ -1,0 +1,16 @@
+<div class="group-new-wrapper" >
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">新しいグループを作る</h1>
+        <%= form_for @group do |f| %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, autocomplete: "name" %>
+          </div>
+          <%= f.submit 'グループ作成', class: 'btn btn-black btn-block' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="group-index-wrapper">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-6 col-md-offset-3">
+        <h3 class=" group-new-wrapper">
+          <%= link_to "新しいグループを作る", new_group_path %>
+        </h3>
+        <% @groups.each do |group| %>
+          <div class="group-index-single">
+            <%= link_to group.name, group_path(group.id) %>
+            <%= "コメント数:#{group.groupposts.count}" %>
+            <%= "参加者:#{group.users.count}" %>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

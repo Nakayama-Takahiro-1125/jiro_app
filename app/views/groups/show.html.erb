@@ -1,0 +1,23 @@
+<div class="group-show-wrapper">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-6 col-md-offset-3">
+        <h2 class="group-show-name"><%= @group.name %></h2>
+        <div class="group-show-contents">
+          <% if @group.users.include?(current_user) %>
+           <h3 class="grouppost_btn"><%= link_to '投稿', new_group_grouppost_path(@group.id) %></h3>
+           <% @groupposts.each do |grouppost| %>
+             <div class="grouppost_index">
+               <h4 class="grouppost_user_name"><%= link_to grouppost.user.name, user_path(grouppost.user.id) %></h4>
+               <h5><%= grouppost.content %></h5>
+             </div>
+           <% end %>
+          <% else %>
+            <h3><%= "#{@group.name}に参加しますか？" %></h3>
+             
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
