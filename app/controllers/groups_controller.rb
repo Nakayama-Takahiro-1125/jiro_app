@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
       @group.users << current_user
     end
     
-    @groupposts = Grouppost.where(id: params[:id]).all
+    @groupposts = Grouppost.where(group_id: @group.id).all
   end
   
   private

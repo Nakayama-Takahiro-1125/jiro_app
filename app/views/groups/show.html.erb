@@ -8,7 +8,7 @@
            <h3 class="grouppost_btn"><%= link_to '投稿', new_group_grouppost_path(@group.id) %></h3>
            <% @groupposts.each do |grouppost| %>
              <div class="grouppost_index">
-               <h4 class="grouppost_user_name"><%= link_to grouppost.user.name, user_path(grouppost.user.id) %></h4>
+               <h5 class="group-index-name"><%= link_to grouppost.user.name, user_path(grouppost.user.id) %></h5>
                <h5><%= grouppost.content %></h5>
              </div>
            <% end %>

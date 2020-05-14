@@ -258,10 +258,11 @@ h1, h2 {
   .grouppost_index{
     border: 1px solid #e6ecf0;
     border-radius: 3px;
-  }
-  
-  .grouppost_user_name{
+    
+    .group-index-name{
     float: left;
+    display: inline-block;
+    }
   }
 }
 
